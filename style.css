@@ -1,0 +1,16 @@
+form{
+font-size: x-large;
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+h1{
+    color: orange;
+}
+.form-error{
+   color:red; 
+}
+.form-success{
+    color:green;
+}
+.input-error{
+    box-shadow: 0 0 5px red;;
+}

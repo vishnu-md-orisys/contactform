@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Contact Form
+    </title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $('#form').on('submit',function(e){
+         e.preventDefault();
+          var name=$("#name").val();
+          var email=$("#email").val();
+          var gender=$("#gender").val();
+          var country=$("#country").val();
+          var submit=$("#submit").val();
+          console.log(name);
+          $.post("mail.php",
+  {
+    name : name,
+    email : email,
+
+    gender : gender, 
+    country : country,
+    submit : submit
+  },
+  function(data, status){
+    alert( "status");
+  });
+         
+          });
+          });
+    </script>
+  </head>
+  <body>
+    <h1>Contact Form</h1>
+    <form method="post" id="form" action="mail.php">
+      <label>Name:</label>
+      <input type="text" name="name" id="name" placeholder="Enter your name"><br>
+      <label>Email:</label>
+      <input type="email" name="email" id="email" placeholder="Enter your Email-id"><br>
+      <label>Gender:</label>
+      <select name="gender" id="gender">
+        <option selected disabled hidden>choose a value....</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">Other</option>
+      </select><br>
+      <label>Country:</label>
+      <input type="text" name="country" id="country" placeholder="Enter your country name"><br>
+      <input id="submit" type="submit" name="submit" value="Submit"><br>
+      <p class="form-message"></p>
+          </form>
+  </body>
+</html>
